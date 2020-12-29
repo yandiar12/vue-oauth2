@@ -56,7 +56,7 @@
                   </div>
 
                   <div class="my-2">
-                    <v-btn depressed block color="info" elevation="3" @click="submit($event)" :loading="loading" :disabled="invalid">
+                    <v-btn depressed block tile color="info" elevation="3" @click="submit($event)" :loading="loading" :disabled="invalid">
                       Sign up
                     </v-btn>
                   </div>

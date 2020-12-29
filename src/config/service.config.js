@@ -33,7 +33,11 @@ if (process.env.NODE_ENV === 'development') {
     console.log('Response Interceptor', response)
     return response.data
   }, function (error) {
-    return Promise.reject(error.response.data)
+    console.log(error)
+    if (error.response !== undefined) {
+      return Promise.reject(error.response.data)  
+    }
+    return Promise.reject(error)
   })
 }
 

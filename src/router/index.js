@@ -11,12 +11,14 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: () => import("../views/Home")
-  },
-  {
-    path: "/profile",
-    name: "profile",
-    component: () => import("../views/Profile")
+    component: () => import("../views/Home"),
+    children: [
+      {
+        path: "/profile",
+        name: "profile",
+        component: () => import("../views/Profile")
+      }
+    ]
   },
   {
     path: "/login",
@@ -59,7 +61,7 @@ router.beforeEach((to, from, next) => {
   const authRequired = !publicPages.includes(to.path)
   const userData = AuthHeader.getAuthData()
   const loggedIn = !!userData
-
+  console.log(loggedIn)
   if (authRequired && !loggedIn) {
     // console.log("must login!")
     return next({

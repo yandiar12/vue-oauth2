@@ -1,32 +1,32 @@
 <template>
-<v-app>
-  <v-card class="mx-auto" max-width="344">
-    <v-card-text>
-      <div>Word of the Day</div>
-      <p class="display-1 text--primary">
-        be•nev•o•lent
-      </p>
-      <p>adjective</p>
-      <div class="text--primary">
-        well meaning and kindly.<br />
-        "a benevolent smile"
-      </div>
-    </v-card-text>
-    <v-card-actions>
-      <v-btn text color="primary">
-        Learn More
-      </v-btn>
-    </v-card-actions>
-  </v-card>
-  </v-app>
+  <v-container fluid fill-height>
+    <v-layout flex align-center justify-center>
+      <v-flex xs12 sm4 elevation-6>
+        <v-card>
+          <v-card-text class="pt-4">
+            <p class="caption text-lg-h6">
+              <v-icon left>fa fa-user</v-icon>{{ authData.user.name }}
+            </p>
+            <p class="caption text-lg-h6">
+              <v-icon left>fa fa-envelope</v-icon>{{ authData.user.email }}
+            </p>
+          </v-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
-  export default {
-    
+import { AuthHeader } from '../services/StorageService'
+export default {
+  name: 'profile',
+  data() {
+    return {
+      authData: AuthHeader.getAuthData()
+    }
   }
+}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

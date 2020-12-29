@@ -7,8 +7,8 @@
         </div>
       </v-toolbar-title>
       
-      <v-btn depressed color="primary" v-if="isLoggedIn">
-        {{ getUser.name }} Profile
+      <v-btn depressed color="primary" v-if="authData" to="profile">
+        {{ authData.user.name }} Profile
       </v-btn>
 
       <v-spacer></v-spacer>
@@ -30,20 +30,13 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
+import { AuthHeader } from '../services/StorageService'
 export default {
   name: 'home',
   data() {
     return {
-    }
-  },
-  computed: {
-    ...mapGetters('auth', ['token', 'user']),
-    getUser() {
-      return this.user
-    },
-    isLoggedIn() {
-      return this.token
+      authData: AuthHeader.getAuthData()
     }
   },
   methods: {

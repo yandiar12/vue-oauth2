@@ -37,6 +37,7 @@
                     <v-btn 
                       depressed 
                       block 
+                      tile
                       color="info" 
                       elevation="3" 
                       @click="onLogin($event)" 
@@ -52,7 +53,7 @@
                   </div>
 
                   <div class="my-2" align="center">
-                    <v-btn block outlined color="error" :href="google_auth_url" :disabled="loading">
+                    <v-btn block outlined tile color="error" :href="google_auth_url" :disabled="loading">
                       <v-icon left>
                         fa fa-google fa-fw
                       </v-icon>
@@ -60,7 +61,7 @@
                     </v-btn>
                   </div>
                   <div class="my-2" align="center">
-                    <v-btn block outlined color="primary" :href="facebook_auth_url" :disabled="loading">
+                    <v-btn block outlined tile color="primary" :href="facebook_auth_url" :disabled="loading">
                       <v-icon left>
                         fa fa-facebook fa-fw
                       </v-icon>
@@ -68,7 +69,7 @@
                     </v-btn>
                   </div>
                   <div class="my-2" align="center">
-                    <v-btn block outlined :href="github_auth_url" :disabled="loading">
+                    <v-btn block outlined tile :href="github_auth_url" :disabled="loading">
                       <v-icon left>
                         fa fa-github fa-fw
                       </v-icon>
@@ -144,7 +145,7 @@ export default {
           console.log(res)
           this.loading = false
           this.fetchUser(res)
-          this.$router.replace('/')
+          // this.$router.replace('/')
         },
         (err) => {
           console.log(err)
